@@ -22,6 +22,11 @@ var destination;
 var trainTime;
 var frequency;
 var minutesAway;
+//uses moment js to set current time
+var now = moment();
+// logs the time to make sure it works
+console.log("time: " + now.format('MMM Do YYYY, h:mm:ss: a'));
+
 
 // Function that runs when the submit button is pressed to add train info to firebase
 $("#trainSubmit").on("click", function(event) {
@@ -53,12 +58,25 @@ database.ref().on("child_added", function(snapshot) {
 	//clears out the input fields inside the form div
 	$(".form-control").val("");
 
-	// sets the current time
-	var currentTime = moment();
+	// time calculations (used 7.3 trainexample.html as a guide from class repository)
 	// logs the time to make sure it works
-	console.log("time: " + moment(currentTime).format('HH:MM'));
+	console.log("time: " + now.format('HH:MM'));
+
+	var firstTime = moment(snapshot.val().trainTime, 'hh:mm').subtract(1, "years");
+
+	var diffTime = moment().diff(moment(firstTime), "minutes");
+
+	var remainder = diffTime % frequency;
+
+	var minutesUntilTrain = frequency - remainder;
+
+	var nextTrain = moment().add(minutesUntilTrain, "minutes");
 
 	// Adds the snapshot event values and necessary html to the table on the page
-	$("#trainTable > tbody").append("<tr><td>" + name + "</td><td>" + destination + "</td><td>" + trainTime + "</td><td>" + frequency + "</td><td>" + minutesAway + "</td></tr>");
+	$("#trainTable > tbody").append("<tr><td>" + name + "</td><td>" + destination + "</td><td>" + frequency + "</td><td>" + nextTrain + "</td><td>" + minutesUntilTrain + "</td></tr>");
 });
+
+//I unforuntunately have run out of time but known bugs I could not resolve:
+// 1. Next Arrival is clearly not calculating correctly.
+// 2. The only data that pulls correctly from firebase after refreshing is the name. I'm not sure why that happens.
 
