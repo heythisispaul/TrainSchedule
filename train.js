@@ -52,5 +52,13 @@ database.ref().on("child_added", function(snapshot) {
 
 	//clears out the input fields inside the form div
 	$(".form-control").val("");
+
+	// sets the current time
+	var currentTime = moment();
+	// logs the time to make sure it works
+	console.log("time: " + moment(currentTime).format('HH:MM'));
+
+	// Adds the snapshot event values and necessary html to the table on the page
+	$("#trainTable > tbody").append("<tr><td>" + name + "</td><td>" + destination + "</td><td>" + trainTime + "</td><td>" + frequency + "</td><td>" + minutesAway + "</td></tr>");
 });
 
