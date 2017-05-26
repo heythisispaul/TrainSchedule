@@ -30,8 +30,6 @@
                     </div>
                 </div>
             </div>
-         </div>
-    </div>
         <!-- row holding panel containing the form to add a train -->
     <div class="row">
         <div class="col-sm-12">
@@ -45,31 +43,32 @@
                     <form>
                             <!-- label and input for train name -->
                           <div class="form-group">
-                            <label id="trainName">Train Name:</label>
-                            <input type="text" class="form-control" id="searchTerm">
+                            <label for="trainName">Train Name:</label>
+                            <input type="text" class="form-control" id="trainName">
                           </div>
                           <!-- label and input for destination  -->
                           <div class="form-group">
-                            <label id="destination">Destination:</label>
-                            <input type="text" class="form-control" id="">      
+                            <label for="destination">Destination:</label>
+                            <input type="text" class="form-control" id="destination">      
                           </div>
                             <!-- Label and input section for time -->
                           <div class="form-group">
-                            <label id="firstTrainTime">First Train Time (HH:mm - military time):</label>
-                            <input type="text" class="form-control" id="startYear">
+                            <label for="trainTime">First Train Time (HH:mm - military time):</label>
+                            <input type="text" class="form-control" id="trainTime">
                           </div>
                             <!-- label and input for sor frequency -->
                           <div class="form-group">
-                            <label id="frequency">Frequency (min):</label>
-                            <input type="text" class="form-control" id="endYear">
+                            <label for="frequency">Frequency (min):</label>
+                            <input type="text" class="form-control" id="frequency">
                           </div>
                           <!--submit button -->
-                          <button type="submit" class="btn btn-primary" id="runSearch"><i class="fa fa-search"></i> Submit</button>
+                          <button type="submit" class="btn btn-primary" id="trainSubmit"><i class="fa fa-search"></i> Submit</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+</div>
        <!-- Added link to the jQuery Library -->
     <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
         <!-- Link to Firebase -->
