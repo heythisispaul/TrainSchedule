@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Time Schedule: Choo Choo</title>
+   <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <!-- Top jumbotron-->
+        <div class="jumbotron" style="background-color: orange; color: white; margin-top: 10px;">
+            <h1 class="text-center"><strong>Train Schedule</strong></h1>
+            <h3 class="text-center"><strong>All Aboard for Fun.</strong></h3>
+        </div>
+        <!-- Panel with table to display added trains -->
+        <div class="row">
+            <div class="col-sm-12">
+            <br>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><strong>Current Train Schedule</strong></h3>
+                    </div>
+                    <!-- Table to display trains -->
+                    <div class="panel-body" id="trainTable">
+                    </div>
+                        <table>
+                            
+                        </table>
+                    </div>
+                </div>
+            </div>
+         </div>
+    </div>
+        <!-- row holding panel containing the form to add a train -->
+    <div class="row">
+        <div class="col-sm-12">
+        <br>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Add Train</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <!-- Form for adding a new train-->
+                    <form>
+                            <!-- label and input for train name -->
+                          <div class="form-group">
+                            <label id="trainName">Train Name:</label>
+                            <input type="text" class="form-control" id="searchTerm">
+                          </div>
+                          <!-- label and input for destination  -->
+                          <div class="form-group">
+                            <label id="destination">Destination:</label>
+                            <input type="text" class="form-control" id="">      
+                          </div>
+                            <!-- Label and input section for time -->
+                          <div class="form-group">
+                            <label id="firstTrainTime">First Train Time (HH:mm - military time):</label>
+                            <input type="text" class="form-control" id="startYear">
+                          </div>
+                            <!-- label and input for sor frequency -->
+                          <div class="form-group">
+                            <label id="frequency">Frequency (min):</label>
+                            <input type="text" class="form-control" id="endYear">
+                          </div>
+                          <!--submit button -->
+                          <button type="submit" class="btn btn-primary" id="runSearch"><i class="fa fa-search"></i> Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+       <!-- Added link to the jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+        <!-- Link to Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+        <!-- Link to external JS -->
+    <script type="text/javascript" src="train.js"></script>
+</body>
+</html>
