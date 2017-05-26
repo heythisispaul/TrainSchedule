@@ -32,7 +32,7 @@ $("#trainSubmit").on("click", function(event) {
 	destination = $("#destination").val().trim();
 	trainTime = $("#trainTime").val().trim();
 	frequency = $("#frequency").val().trim();
-	// pushes this information to firebase
+	// pushes this information to firebase with these key value pairings:
 	database.ref().push({
 		name: name,
 		destination: destination,
@@ -40,3 +40,17 @@ $("#trainSubmit").on("click", function(event) {
 		frequency: frequency
 	});
 });
+
+// Takes snapshot when new child is added to database:
+database.ref().on("child_added", function(snapshot) {
+
+	// prints this child's information to console to check:
+	console.log(snapshot.val().name);
+	console.log(snapshot.val().destination);
+	console.log(snapshot.val().trainTime);
+	console.log(snapshot.val().frequency);
+
+	//clears out the input fields inside the form div
+	$(".form-control").val("");
+});
+
